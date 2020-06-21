@@ -37,6 +37,7 @@ export class ShenanigansComponent implements OnInit {
             this.timeLeft--;
           } else {
             this.timeLeft = 300; //check every 5 minutes now
+            this.ALERT = true;
             setTimeout(()=>{
               this.ALERT = false;
             },10000)

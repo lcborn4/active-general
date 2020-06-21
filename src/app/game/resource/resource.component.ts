@@ -31,13 +31,14 @@ export class ResourceComponent implements OnInit {
         this.timeLeft--;
       } else {
         this.timeLeft = 300;
+        this.ALERT = true;
         clearInterval(this.initialInterval);
         this.interval = setInterval(()=>{
           if(this.timeLeft > 0) {
             this.timeLeft--;
           } else {
             this.timeLeft = 300;
-            
+            this.ALERT = true;
             setTimeout(()=>{
               this.ALERT = false;
             },10000)

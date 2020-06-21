@@ -30,11 +30,13 @@ export class FarmComponent implements OnInit {
         this.timeLeft--;
       } else {
         this.timeLeft = 300;
+        this.ALERT = true;
         clearInterval(this.initialInterval);
         this.interval = setInterval(() => {
           if (this.timeLeft > 0) {
             this.timeLeft--;
           } else {
+            this.ALERT = true;
             this.timeLeft = 300;
             setTimeout(() => {
               this.ALERT = false;

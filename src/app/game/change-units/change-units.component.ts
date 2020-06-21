@@ -30,12 +30,14 @@ export class ChangeUnitsComponent implements OnInit {
         this.timeLeft--;
       } else {
         this.timeLeft = 600; //every 10 minutes check for change units
+        this.ALERT = true;
         clearInterval(this.initialInterval);
         this.interval = setInterval(() => {
           if (this.timeLeft > 0) {
             this.timeLeft--;
           } else {
             this.timeLeft = 600;
+            this.ALERT = true;
             setTimeout(() => {
               this.ALERT = false;
             }, 10000)
