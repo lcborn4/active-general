@@ -1,8 +1,14 @@
 <div style="text-align: center;">
   <h1>Game</h1>
 
+  <app-timer></app-timer>
+  
+  <app-farm></app-farm>
+  <app-resource></app-resource>
+  <app-change-units></app-change-units>
+  <app-shenanigans></app-shenanigans>
 
   <div>
-    <button mat-button routerLink="/home" color="primary">End Game</button>
+    <button mat-button (click)="endGame()" color="primary">End Game</button>
   </div>
 </div>
