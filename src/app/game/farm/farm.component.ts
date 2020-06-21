@@ -7,26 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FarmComponent implements OnInit {
 
-  timeLeft: number = 300;
+  timeLeft: number = 300; //5 minutes
+  initialCheck: number = 600;
   interval;
+  initialInterval;
 
   constructor() { }
 
   ngOnInit() {
 
     console.log('check farms interval',this.timeLeft)
-
-    this.checkFarmsTimer()
+    this.timeLeft = 600; //600
+    this.checkResourcesTimer()
 
   }
 
-  checkFarmsTimer()
+  checkResourcesTimer()
   {
-    this.interval = setInterval(() => {
+    this.initialInterval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
         this.timeLeft = 300;
+        clearInterval(this.initialInterval);
+        this.interval = setInterval(()=>{
+          if(this.timeLeft > 0) {
+            this.timeLeft--;
+          } else {
+            this.timeLeft = 300;
+          }
+        },1000)
       }
     },1000)
 

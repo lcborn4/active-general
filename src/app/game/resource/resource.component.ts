@@ -7,26 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceComponent implements OnInit {
 
-  timeLeft: number = 600; //10 minutes
+  timeLeft: number = 300; //5 minutes
+  initialCheck: number = 600;
   interval;
+  initialInterval;
 
   constructor() { }
 
   ngOnInit() {
 
     console.log('check resources interval',this.timeLeft)
-
+    this.timeLeft = 600; //600
     this.checkResourcesTimer()
 
   }
 
   checkResourcesTimer()
   {
-    this.interval = setInterval(() => {
+    this.initialInterval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 600;
+        this.timeLeft = 300;
+        clearInterval(this.initialInterval);
+        this.interval = setInterval(()=>{
+          if(this.timeLeft > 0) {
+            this.timeLeft--;
+          } else {
+            this.timeLeft = 300;
+          }
+        },1000)
       }
     },1000)
 
