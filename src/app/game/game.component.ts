@@ -20,7 +20,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.timerComponent.pauseTimeLine();
+    // this.timerComponent.pauseTimeLine();
   }
 
   endGame() {
