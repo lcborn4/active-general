@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FarmComponent } from './game/farm/farm.component';
 import { ResourceComponent } from './game/resource/resource.component';
 import { TimerComponent } from './game/timer/timer.component';
+import { ChangeUnitsComponent } from './game/change-units/change-units.component';
 import { ShenanigansComponent } from './game/shenanigans/shenanigans.component';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ShenanigansComponent } from './game/shenanigans/shenanigans.component';
     FarmComponent,
     ResourceComponent,
     TimerComponent,
-    ShenanigansComponent
+    ShenanigansComponent,
+    ChangeUnitsComponent
   ],
   imports: [
     BrowserModule,
