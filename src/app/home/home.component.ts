@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let elapsedTime = 0;
+    localStorage.setItem('startTime', JSON.stringify(elapsedTime));
   }
 
 }
