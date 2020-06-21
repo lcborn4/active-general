@@ -12,33 +12,43 @@ export class ShenanigansComponent implements OnInit {
   interval;
   initialInterval;
 
+  ALERT = false;
+
   constructor() { }
 
   ngOnInit() {
 
-    console.log('shenanigans interval',this.timeLeft)
+    console.log('shenanigans interval', this.timeLeft)
     this.timeLeft = 3600; //3600
     this.shenanigansTimer()
 
   }
 
-  shenanigansTimer()
-  {
+  shenanigansTimer() {
     this.initialInterval = setInterval(() => {
-      if(this.timeLeft > 0) {
+      if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
+        this.ALERT = true;
         this.timeLeft = 300; //check every 5 minutes now
         clearInterval(this.initialInterval);
-        this.interval = setInterval(()=>{
-          if(this.timeLeft > 0) {
+        this.interval = setInterval(() => {
+          if (this.timeLeft > 0) {
             this.timeLeft--;
           } else {
             this.timeLeft = 300; //check every 5 minutes now
+            setTimeout(()=>{
+              this.ALERT = false;
+            },10000)
           }
-        },1000)
+        }, 1000)
+
+        setTimeout(()=>{
+          this.ALERT = false;
+        },10000)
+
       }
-    },1000)
+    }, 1000)
 
   }
 

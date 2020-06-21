@@ -12,6 +12,8 @@ export class ResourceComponent implements OnInit {
   interval;
   initialInterval;
 
+  ALERT = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -35,8 +37,18 @@ export class ResourceComponent implements OnInit {
             this.timeLeft--;
           } else {
             this.timeLeft = 300;
+            
+            setTimeout(()=>{
+              this.ALERT = false;
+            },10000)
+
           }
         },1000)
+
+        setTimeout(()=>{
+          this.ALERT = false;
+        },10000)
+
       }
     },1000)
 

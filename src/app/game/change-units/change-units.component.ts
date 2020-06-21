@@ -9,6 +9,9 @@ export class ChangeUnitsComponent implements OnInit {
 
   timeLeft: number = 1800; //30 minutes
   interval;
+  initialInterval;
+
+  ALERT = false;
 
   constructor() { }
 
@@ -22,15 +25,32 @@ export class ChangeUnitsComponent implements OnInit {
 
   changeUnitsTimer()
   {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
+    this.initialInterval = setInterval(() => {
+      if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 1800;
+        this.timeLeft = 600; //every 10 minutes check for change units
+        clearInterval(this.initialInterval);
+        this.interval = setInterval(() => {
+          if (this.timeLeft > 0) {
+            this.timeLeft--;
+          } else {
+            this.timeLeft = 600;
+            setTimeout(() => {
+              this.ALERT = false;
+            }, 10000)
+
+          }
+        }, 1000)
+
+        setTimeout(() => {
+          this.ALERT = false;
+        }, 10000)
+
       }
-    },1000)
+
+    }, 1000)
 
   }
 
-  
 }

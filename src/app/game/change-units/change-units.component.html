@@ -1,4 +1,8 @@
-
-<div>
-    <h2>Change Units: {{timeLeft}}</h2>
-</div>
+<div *ngIf="ALERT">
+    <div class="alert">
+      <h2>Change Units: {{ timeLeft }}</h2>
+    </div>
+  </div>
+  <div *ngIf="!ALERT">
+    <h2>Change Units: {{ timeLeft }}</h2>
+  </div>

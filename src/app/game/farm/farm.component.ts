@@ -12,33 +12,44 @@ export class FarmComponent implements OnInit {
   interval;
   initialInterval;
 
+  ALERT = false;
+
   constructor() { }
 
   ngOnInit() {
 
-    console.log('check farms interval',this.timeLeft)
+    console.log('check farms interval', this.timeLeft)
     this.timeLeft = 600; //600
     this.checkResourcesTimer()
 
   }
 
-  checkResourcesTimer()
-  {
+  checkResourcesTimer() {
     this.initialInterval = setInterval(() => {
-      if(this.timeLeft > 0) {
+      if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
         this.timeLeft = 300;
         clearInterval(this.initialInterval);
-        this.interval = setInterval(()=>{
-          if(this.timeLeft > 0) {
+        this.interval = setInterval(() => {
+          if (this.timeLeft > 0) {
             this.timeLeft--;
           } else {
             this.timeLeft = 300;
+            setTimeout(() => {
+              this.ALERT = false;
+            }, 10000)
+
           }
-        },1000)
+        }, 1000)
+
+        setTimeout(() => {
+          this.ALERT = false;
+        }, 10000)
+
       }
-    },1000)
+
+    }, 1000)
 
   }
 

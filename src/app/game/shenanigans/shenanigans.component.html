@@ -1,3 +1,8 @@
-<div>
-    <h2>Check for Shenanigans: {{timeLeft}}</h2>
+<div *ngIf="ALERT">
+  <div class="alert">
+    <h2>Check for Shenanigans: {{ timeLeft }}</h2>
+  </div>
+</div>
+<div *ngIf="!ALERT">
+  <h2>Check for Shenanigans: {{ timeLeft }}</h2>
 </div>
